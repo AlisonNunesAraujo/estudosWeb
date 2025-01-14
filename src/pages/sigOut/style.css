@@ -1,0 +1,20 @@
+.conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 50%;
+    outline: none;
+}
