@@ -7,10 +7,10 @@ import { AuthContext } from "../contextApi";
 
 export function Private({children}: ChildrenProps) {
 
-    const {user} = useContext(AuthContext)
+    const {signed} = useContext(AuthContext)
 
 
-    if (!!user){
+    if (!signed){
         return <Navigate to='/'/>
     }
 

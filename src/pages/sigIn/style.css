@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background: linear-gradient(to right, #00004d, #000000);
 }
 
 form{
@@ -15,7 +16,9 @@ form{
     justify-content:  center;
     align-items: center;
 }
-
+.Title{
+    color: white;
+}
 input{
     padding: 10px;
     border-radius: 5px;

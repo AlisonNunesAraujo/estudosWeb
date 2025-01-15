@@ -3,12 +3,16 @@
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
+    background: linear-gradient(to right, #00004d, #000000);
 }
 
 form{
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+.Title{
+    color: white;
 }
 
 input{

@@ -1,14 +1,22 @@
-import { createContext, ReactNode, useState } from "react";
-import { auth } from "../firebase/firebseConection";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createContext, ReactNode, useEffect, useState } from "react";
+import { auth, db } from "../firebase/firebseConection";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+// import { getDocs } from "firebase/firestore";
+// import { collection } from "firebase/firestore";
+
+
 
 export const AuthContext = createContext({} as Users);
 
 type Users = {
   user: DadosUser;
   CreateUser: (info: DadosCreate) => Promise<void>;
-  authLoading: boolean;
+  Login: (info: DadosCreate) => Promise<void>;
+  signed: boolean;
 };
 
 type DadosUser = {
@@ -31,9 +39,21 @@ export function AuthProvider({ children }: ChildrenProps) {
     uid: "",
   });
 
-  const authLoading = !!user.email && !!user.uid;
+  const navigation = useNavigate();
 
-  const naviagtion = useNavigate();
+
+  // useEffect(()=>{
+  //   async function Rendle(){
+  //     try{
+  //       const ref = collection(db,'trilha')
+  //     }
+  //     catch{
+
+  //     }
+  //   }
+  // },[])
+
+
 
   async function CreateUser({ email, senha }: DadosCreate) {
     try {
@@ -43,15 +63,26 @@ export function AuthProvider({ children }: ChildrenProps) {
         email: data.user.email,
         uid: data.user.uid,
       });
-      alert('conta criada');
-      naviagtion('/')
+      alert("conta criada");
+    } catch {
+      alert("erro");
+    }
+  }
+
+  async function Login({ email, senha }: DadosCreate) {
+    try {
+      const data = await signInWithEmailAndPassword(auth, email, senha);
+
+      setUser({ email: data.user.email, uid: data.user.uid });
+      alert("ok");
+      navigation("/Home");
     } catch {
       alert("erro");
     }
   }
 
   return (
-    <AuthContext.Provider value={{ user, CreateUser, authLoading }}>
+    <AuthContext.Provider value={{ signed: !!user, CreateUser, Login, user }}>
       {children}
     </AuthContext.Provider>
   );
