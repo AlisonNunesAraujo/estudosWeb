@@ -22,3 +22,14 @@ input{
     width: 50%;
     outline: none;
 }
+
+a{
+    width: 20%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ccc;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}

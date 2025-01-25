@@ -5,16 +5,12 @@ import { useContext } from "react";
 
 import { AuthContext } from "../contextApi";
 
-export function Private({children}: ChildrenProps) {
+export function Private({ children }: ChildrenProps) {
+  const { verificar } = useContext(AuthContext);
 
-    const {signed} = useContext(AuthContext)
+  if (!verificar) {
+    return <Navigate to="/" />;
+  }
 
-
-    if (!signed){
-        return <Navigate to='/'/>
-    }
-
-    return children; 
-
-    
+  return children;
 }

@@ -1,14 +1,13 @@
 import "./style.css";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import { useContext } from "react";
 import { AuthContext } from "../../contextApi";
-
+import { Link } from "react-router-dom";
 export default function SigOut() {
   const { CreateUser } = useContext(AuthContext);
 
-  const navigation = useNavigate();
+  
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -33,7 +32,7 @@ export default function SigOut() {
           onChange={(e) => setSenha(e.target.value)}
         />
         <button onClick={(e) => Criar(e)}>Criar</button>
-        <button onClick={() => navigation("/")}>Voltar</button>
+        <Link to="/">Voltar</Link>
       </form>
 
       <div>

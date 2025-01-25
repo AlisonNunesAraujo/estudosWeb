@@ -1,12 +1,10 @@
 import { useState } from "react";
 import "./style.css";
-import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../contextApi";
-
+import { Link } from "react-router-dom";
 
 export default function SigIn() {
-  const navigation = useNavigate();
   const {Login} = useContext(AuthContext)
 
   const [email, setEmail] = useState("");
@@ -33,7 +31,7 @@ export default function SigIn() {
           onChange={(e) => setSenha(e.target.value)}
         />
         <button onClick={(e) => Entrar(e)}>Acessar</button>
-        <button onClick={() => navigation("/SigOut")}>Criar conta!</button>
+        <Link to='/SigOut'>Criar conta!</Link>
       </form>
 
       <div>
