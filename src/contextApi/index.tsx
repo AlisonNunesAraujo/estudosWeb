@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { auth, db } from "../firebase/firebseConection";
 import {
   createUserWithEmailAndPassword,
@@ -13,40 +13,14 @@ import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext({} as Users);
 
-type Users = {
-  user: DadosUser;
-  CreateUser: (info: DadosCreate) => Promise<void>;
-  Login: (info: DadosCreate) => Promise<void>;
-  verificar: boolean;
-  renderLista: TrilhaProps[] | undefined;
-  AddTrilha: (info: AddProps) => Promise<void>;
-  Deletar: (uid: string) => Promise<void>;
-};
-
-type DadosUser = {
-  email: string | null;
-  uid: string | null | number;
-};
-
-export type ChildrenProps = {
-  children: ReactNode;
-};
-
-type DadosCreate = {
-  email: string;
-  senha: string;
-};
-
-type TrilhaProps = {
-  conteudo: string;
-  uid: string;
-  nomeTrilha: string;
-};
-
-type AddProps = {
-  nomeTrilha: string;
-  conteudo: string;
-};
+import {
+  DadosUser,
+  DadosCreate,
+  TrilhaProps,
+  AddProps,
+  ChildrenProps,
+  Users,
+} from "./types";
 
 export function AuthProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<DadosUser>({
