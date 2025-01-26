@@ -33,3 +33,8 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.bntAcessar {
+  background-color: rgb(176, 54, 54);
+  color: white;
+}

@@ -9,11 +9,10 @@ export type Users = {
     AddTrilha: (info: AddProps) => Promise<void>;
     Deletar: (uid: string) => Promise<void>;
     Deslogar: () => Promise<void>
+    loading: boolean | undefined
 };
 
-// export type Deslogar = {
-//     Deslogar: () => Promise<void>
-// };
+
 
 
 export type DadosUser = {

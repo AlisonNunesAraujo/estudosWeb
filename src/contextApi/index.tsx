@@ -10,23 +10,17 @@ import { collection } from "firebase/firestore";
 import { addDoc } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { ReactNode } from "react";
-
-
 import { useNavigate } from "react-router-dom";
 
-export const AuthContext = createContext({} as Users);
-
-import {
-  DadosUser,
-  DadosCreate,
-  TrilhaProps,
-  AddProps,
-  Users,
-} from "./types";
+import { toast } from "react-toastify";
 
 export type ChildrenProps = {
   children: ReactNode;
 };
+
+export const AuthContext = createContext({} as Users);
+
+import { DadosUser, TrilhaProps, AddProps, Users } from "./types";
 
 export function AuthProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<DadosUser>({
@@ -36,7 +30,7 @@ export function AuthProvider({ children }: ChildrenProps) {
   const verificar = !!user?.email && !!user?.uid;
 
   const navigation = useNavigate();
-
+  const [loading, setLoading] = useState<boolean | undefined>();
   const [renderLista, setRenderLista] = useState<TrilhaProps[]>();
 
   useEffect(() => {
@@ -60,67 +54,77 @@ export function AuthProvider({ children }: ChildrenProps) {
     Rendle();
   }, [AddTrilha]);
 
-  async function CreateUser({ email, senha }: DadosCreate) {
+  async function CreateUser(data: any) {
+    setLoading(true);
     try {
-      const data = await createUserWithEmailAndPassword(auth, email, senha);
+      const { email, senha } = data;
+      await createUserWithEmailAndPassword(auth, email, senha);
 
-      setUser({
-        email: data.user.email,
-        uid: data.user.uid,
-      });
-      alert("conta criada");
+      navigation("/");
+      setLoading(false);
+      toast.success("Conta crianda com sucesso!");
     } catch {
-      alert("erro");
+      toast.error("Algo deu errado!");
+      setLoading(false);
     }
   }
 
-  async function Login({ email, senha }: DadosCreate) {
+  async function Login(data: any) {
+    setLoading(true);
     try {
-      const data = await signInWithEmailAndPassword(auth, email, senha);
+      const { email, senha } = data;
+      const response = await signInWithEmailAndPassword(auth, email, senha);
 
-      setUser({ email: data.user.email, uid: data.user.uid });
+      setUser({ email: response.user.email, uid: response.user.uid });
       navigation("/Home");
-      alert("ok");
+      toast("Bem vindo!");
+      setLoading(false);
     } catch {
-      alert("erro");
+      toast.error("Algo deu errado");
+      setLoading(false);
     }
   }
 
   async function AddTrilha({ nomeTrilha, conteudo }: AddProps) {
+    setLoading(true);
     try {
-      const response = addDoc(collection(db, "trilha"), {
+      addDoc(collection(db, "trilha"), {
         conteudo: conteudo,
         nomeTrilha: nomeTrilha,
         uid: user.uid,
       });
 
-      console.log(response);
-      alert("ok");
+      toast.success("Adicionado com sucesso!");
+      setLoading(true);
     } catch {
-      alert("orro");
+      toast.error("Algo deu errado!");
+      setLoading(false);
     }
   }
 
   async function Deletar(uid: string) {
+    setLoading(true);
     try {
       const ref = doc(db, "trilha", uid);
       await deleteDoc(ref)
         .then(() => {
-          alert("apagou");
+          toast.success("Item deletado");
         })
 
         .catch(() => {
-          alert("deu erro");
+          toast.error("Não foi possivel deletar o item!");
         });
+      setLoading(false);
     } catch {
-      alert("erro");
+      toast("Algo deu errado");
+      setLoading(false);
     }
   }
 
   async function Deslogar() {
     try {
       await signOut(auth).then(() => {
-        alert("voce saiu da conta!");
+        toast.success("voce saiu da conta!");
         setUser({
           email: "",
           uid: "",
@@ -140,6 +144,7 @@ export function AuthProvider({ children }: ChildrenProps) {
         AddTrilha,
         Deletar,
         Deslogar,
+        loading,
       }}
     >
       {children}

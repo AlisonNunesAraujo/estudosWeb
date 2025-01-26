@@ -2,7 +2,7 @@ import "./styles.css";
 import Header from "../../components/Header";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contextApi";
-
+import { toast } from "react-toastify";
 export default function Home() {
   const { renderLista, AddTrilha, Deletar } = useContext(AuthContext);
 
@@ -11,7 +11,7 @@ export default function Home() {
 
   function Add() {
     if (conteudo === "" || nomeTrilha === "") {
-      alert("campos obrigatorios");
+      toast.info("Os campos são obrigatorios");
       return;
     }
     AddTrilha({ conteudo, nomeTrilha });
@@ -28,14 +28,14 @@ export default function Home() {
       <Header />
       <div className="grupoConteudo">
         <div className="areaAdd">
-          <h2 className="textAdd">Adicione uma trilha de estudos!</h2>
+          <h2 className="textAdd">Adicione uma trilha de estudos ou uma tarefa!</h2>
           <input
-            placeholder="Trilha"
+            placeholder="Titulo"
             value={nomeTrilha}
             onChange={(e) => setNometrilha(e.target.value)}
           />
           <input
-            placeholder="Oque prentende estudar"
+            placeholder="Oque prentende estudar ou fazer?"
             value={conteudo}
             onChange={(e) => setConteudo(e.target.value)}
           />
