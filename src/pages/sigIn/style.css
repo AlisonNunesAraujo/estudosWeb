@@ -70,3 +70,21 @@ a {
   font-size: 50px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+
+@media screen and (max-width: 600px) {
+  .conteiner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  form {
+    width: 100%;
+  }
+  .areaApresentation {
+    width: 50%;
+  }
+  .areaApresentation h2 {
+    font-size: 30px;
+  }
+}

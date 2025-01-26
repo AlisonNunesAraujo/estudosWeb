@@ -25,3 +25,31 @@
   padding: 15px;
   font-size: 15px;
 }
+
+@media screen and (max-width: 600px) {
+  .header {
+    width: 100%;
+    background-color: white;
+    opacity: 0.9;
+    box-shadow: 0px 0px 5px rgba(253, 253, 253, 0.967);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+  .header h2 {
+    color: rgb(176, 54, 54);
+    font-size: 20px;
+  }
+  .header button {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(176, 54, 54);
+    color: white;
+    cursor: pointer;
+
+    font-size: 15px;
+  }
+}
