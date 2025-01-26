@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function SigOut() {
   const { CreateUser } = useContext(AuthContext);
 
-  
+
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -35,8 +35,11 @@ export default function SigOut() {
         <Link to="/">Voltar</Link>
       </form>
 
-      <div>
-        <h2>Animation</h2>
+      <div className="areaApresentation">
+        <h2>
+          Adicione tarefas, <br /> organize seus estudos, <br />
+          seja organizado!
+        </h2>
       </div>
     </div>
   );

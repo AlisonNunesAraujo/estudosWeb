@@ -5,15 +5,14 @@ import { AuthContext } from "../../contextApi";
 import { Link } from "react-router-dom";
 
 export default function SigIn() {
-  const {Login} = useContext(AuthContext)
+  const { Login } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-
-  async function Entrar(e: any){
+  async function Entrar(e: any) {
     e.preventDefault();
-    Login({email,senha})
+    Login({ email, senha });
   }
 
   return (
@@ -30,12 +29,15 @@ export default function SigIn() {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
-        <button onClick={(e) => Entrar(e)}>Acessar</button>
-        <Link to='/SigOut'>Criar conta!</Link>
+        <button className="bntAcessar" onClick={(e) => Entrar(e)}>Acessar</button>
+        <Link to="/SigOut">Criar conta!</Link>
       </form>
 
-      <div>
-        <h2>animation</h2>
+      <div className="areaApresentation">
+        <h2>
+          Adicione tarefas, <br /> organize seus estudos, <br />
+          seja organizado!
+        </h2>
       </div>
     </div>
   );

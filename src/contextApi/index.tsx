@@ -8,6 +8,7 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { getDocs } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { addDoc } from "firebase/firestore";
+import { signOut } from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";
 
@@ -111,6 +112,18 @@ export function AuthProvider({ children }: ChildrenProps) {
     }
   }
 
+  async function Deslogar() {
+    try {
+      await signOut(auth).then(() => {
+        alert("voce saiu da conta!");
+        setUser({
+          email: "",
+          uid: "",
+        });
+      });
+    } catch { }
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -121,6 +134,7 @@ export function AuthProvider({ children }: ChildrenProps) {
         renderLista,
         AddTrilha,
         Deletar,
+        Deslogar,
       }}
     >
       {children}

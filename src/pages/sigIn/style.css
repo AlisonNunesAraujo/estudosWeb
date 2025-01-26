@@ -1,45 +1,72 @@
-.conteiner{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background: linear-gradient(to right, #00004d, #000000);
+.conteiner {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #ccc;
 }
 
-form{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    display: flex;
-    justify-content:  center;
-    align-items: center;
+form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.Title{
-    color: white;
+.Title {
+  color: rgb(54, 53, 53);
+  font-size: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-input{
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    width: 50%;
-    outline: none;
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 50%;
+  outline: none;
 }
 
-button{
-    width: 20%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
+.bntAcessar {
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: cubic-bezier(0.23, 1, 0.32, 1) 0.5s;
 }
-a{
-    width: 20%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #ccc;
-    text-align: center;
-    text-decoration: none;
-    color: black;
+
+.bntAcessar:hover {
+  background-color: rgb(47, 47, 47);
+  color: white;
+  scale: 1.1;
+}
+
+a {
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ccc;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.areaApresentation {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.areaApresentation h2 {
+  color: rgb(47, 47, 47);
+  font-size: 40px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }

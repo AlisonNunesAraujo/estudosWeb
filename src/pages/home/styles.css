@@ -6,7 +6,7 @@
 
 .grupoConteudo {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding: 10px;
 }
@@ -24,8 +24,15 @@
   border-radius: 5px;
 }
 
+.textAdd {
+  color: rgb(176, 54, 54);
+  margin-top: 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+}
+
 .areaAdd input {
-  width: 80%;
+  width: 50%;
   height: 50px;
   border-radius: 5px;
   border: none;
@@ -35,7 +42,7 @@
 }
 
 .areaAdd button {
-  width: 80%;
+  width: 50%;
   height: 50px;
   background-color: blue;
   color: white;
@@ -62,12 +69,12 @@
   padding: 10px;
 }
 
-.itemMap{
+.itemMap {
   width: 90%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: white;
+  background-color: rgb(22, 22, 22);
   opacity: 0.9;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -75,17 +82,43 @@
   gap: 10px;
 }
 
-.itemMap h2{
+.itemMap h2 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 900;
   text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+  opacity: 0.9;
+  margin-bottom: 20px;
 }
 
-.itemMap h4{
+.itemMap h4 {
   font-size: 15px;
   font-weight: 600;
   text-align: center;
+  color: white;
+  opacity: 0.6;
 }
 
+.itemMap button {
+  width: 100px;
+  height: 30px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 2px;
+  align-items: center;
+  justify-content: center;
+}
 
+.itemMap button:hover {
+  transform: scale(1.2);
+  background-color: red;
+  color: wheat;
+}

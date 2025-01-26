@@ -8,7 +8,13 @@ export type Users = {
     renderLista: TrilhaProps[] | undefined;
     AddTrilha: (info: AddProps) => Promise<void>;
     Deletar: (uid: string) => Promise<void>;
+    Deslogar: () => Promise<void>
 };
+
+// export type Deslogar = {
+//     Deslogar: () => Promise<void>
+// };
+
 
 export type DadosUser = {
     email: string | null;

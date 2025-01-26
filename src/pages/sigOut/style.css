@@ -1,35 +1,35 @@
-.conteiner{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-    background: linear-gradient(to right, #00004d, #000000);
+.conteiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #ccc;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-.Title{
-    color: white;
+/* .Title {
+  color: white;
+} */
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 50%;
+  outline: none;
 }
 
-input{
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    width: 50%;
-    outline: none;
-}
-
-a{
-    width: 20%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #ccc;
-    text-align: center;
-    text-decoration: none;
-    color: black;
+a {
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ccc;
+  text-align: center;
+  text-decoration: none;
+  color: black;
 }

@@ -1,13 +1,22 @@
 import './style.css'
 
-
+import { useContext } from 'react';
+import { AuthContext } from '../../contextApi';
 export default function Header() {
- return (
-   <div className='header'>
-        <h2>Bem vindo!</h2>
-        <div>
-            <h2>Sair</h2>
-        </div>
-   </div>
- );
+
+  const { Deslogar } = useContext(AuthContext)
+
+  async function Sair() {
+    Deslogar();
+  }
+
+
+  return (
+    <div className='header'>
+      <h2>Olá, seja bem vindo!</h2>
+      <div>
+        <button onClick={Sair}>Sair</button>
+      </div>
+    </div>
+  );
 }

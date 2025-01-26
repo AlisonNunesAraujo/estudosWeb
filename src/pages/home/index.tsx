@@ -51,9 +51,7 @@ export default function Home() {
             </button>
           ))}
         </div>
-        <div>
-          <h2>ola</h2>
-        </div>
+
       </div>
     </div>
   );
