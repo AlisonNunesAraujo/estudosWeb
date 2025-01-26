@@ -9,6 +9,8 @@ import { getDocs } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { addDoc } from "firebase/firestore";
 import { signOut } from "firebase/auth";
+import { ReactNode } from "react";
+
 
 import { useNavigate } from "react-router-dom";
 
@@ -19,9 +21,12 @@ import {
   DadosCreate,
   TrilhaProps,
   AddProps,
-  ChildrenProps,
   Users,
 } from "./types";
+
+type ChildrenProps = {
+  children: ReactNode;
+};
 
 export function AuthProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<DadosUser>({
