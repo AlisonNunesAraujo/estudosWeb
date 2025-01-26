@@ -24,7 +24,7 @@ import {
   Users,
 } from "./types";
 
-type ChildrenProps = {
+export type ChildrenProps = {
   children: ReactNode;
 };
 
