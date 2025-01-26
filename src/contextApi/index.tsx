@@ -11,7 +11,7 @@ import { addDoc } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { query, where, } from "firebase/firestore";
 import { toast } from "react-toastify";
 
 export type ChildrenProps = {
@@ -36,8 +36,8 @@ export function AuthProvider({ children }: ChildrenProps) {
   useEffect(() => {
     async function Rendle() {
       const ref = collection(db, "trilha");
-
-      getDocs(ref).then((snapshot) => {
+      const queryOn = query(ref, where('uid', '==', user.uid));
+      getDocs(queryOn).then((snapshot) => {
         let lista: TrilhaProps[] = [];
 
         snapshot.forEach((doc) => {
