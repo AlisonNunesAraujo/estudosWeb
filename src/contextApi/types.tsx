@@ -30,12 +30,12 @@ export type DadosCreate = {
 };
 
 export type TrilhaProps = {
-    conteudo: string;
+    trilha: string;
     uid: string;
     nomeTrilha: string;
 };
 
 export type AddProps = {
     nomeTrilha: string;
-    conteudo: string;
+    trilha: string;
 };

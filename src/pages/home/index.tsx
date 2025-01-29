@@ -7,15 +7,15 @@ export default function Home() {
   const { renderLista, AddTrilha, Deletar } = useContext(AuthContext);
 
   const [nomeTrilha, setNometrilha] = useState("");
-  const [conteudo, setConteudo] = useState("");
+  const [trilha, setTrilha] = useState("");
 
   function Add() {
-    if (conteudo === "" || nomeTrilha === "") {
+    if (trilha === "" || nomeTrilha === "") {
       toast.info("Os campos são obrigatorios");
       return;
     }
-    AddTrilha({ conteudo, nomeTrilha });
-    setConteudo("");
+    AddTrilha({ trilha, nomeTrilha });
+    setTrilha("");
     setNometrilha("");
   }
 
@@ -36,8 +36,8 @@ export default function Home() {
           />
           <input
             placeholder="Oque prentende estudar ou fazer?"
-            value={conteudo}
-            onChange={(e) => setConteudo(e.target.value)}
+            value={trilha}
+            onChange={(e) => setTrilha(e.target.value)}
           />
           <button onClick={Add}>Adicionar</button>
         </div>
@@ -46,7 +46,7 @@ export default function Home() {
           {renderLista?.map((item) => (
             <button className="itemMap">
               <h2>{item.nomeTrilha}</h2>
-              <h4>{item.conteudo}</h4>
+              <h4>{item.trilha}</h4>
               <button onClick={() => Excluir(item.uid)}>Excluir</button>
             </button>
           ))}

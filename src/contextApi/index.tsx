@@ -42,7 +42,7 @@ export function AuthProvider({ children }: ChildrenProps) {
 
         snapshot.forEach((doc) => {
           lista.push({
-            conteudo: doc.data().conteudo,
+            trilha: doc.data().trilha,
             uid: doc.id,
             nomeTrilha: doc.data().nomeTrilha,
           });
@@ -85,11 +85,11 @@ export function AuthProvider({ children }: ChildrenProps) {
     }
   }
 
-  async function AddTrilha({ nomeTrilha, conteudo }: AddProps) {
+  async function AddTrilha({ nomeTrilha, trilha }: AddProps) {
     setLoading(true);
     try {
       addDoc(collection(db, "trilha"), {
-        conteudo: conteudo,
+        trilha: trilha,
         nomeTrilha: nomeTrilha,
         uid: user.uid,
       });
