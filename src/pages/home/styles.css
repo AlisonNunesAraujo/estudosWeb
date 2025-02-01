@@ -25,9 +25,9 @@
 }
 
 .textAdd {
-  color: rgb(176, 54, 54);
+  color: rgb(53, 48, 48);
   margin-top: 20px;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: 700;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .itemMap {
-  width: 100%;
+  width: 50%;
   display: flex;
   align-items: center;
   flex-direction: column;

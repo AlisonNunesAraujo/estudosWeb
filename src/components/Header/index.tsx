@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../contextApi';
 export default function Header() {
 
-  const { Deslogar } = useContext(AuthContext)
+  const { Deslogar, user } = useContext(AuthContext)
 
   async function Sair() {
     Deslogar();
@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <div className='header'>
-      <h2>Olá, seja bem vindo!</h2>
+      <h2> Email: {user.email}</h2>
       <div>
         <button onClick={Sair}>Sair</button>
       </div>

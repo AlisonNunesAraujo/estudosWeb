@@ -87,4 +87,7 @@ a {
   .areaApresentation h2 {
     font-size: 30px;
   }
+  .bntAcessar {
+    width: 50%;
+  }
 }

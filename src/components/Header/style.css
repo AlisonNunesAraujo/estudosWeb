@@ -10,8 +10,8 @@
 }
 
 .header h2 {
-  color: rgb(176, 54, 54);
-  font-size: 30px;
+  color: rgb(62, 40, 40);
+  font-size: 20px;
 }
 
 .header button {
@@ -38,8 +38,9 @@
     padding: 10px;
   }
   .header h2 {
-    color: rgb(176, 54, 54);
-    font-size: 20px;
+    color: rgb(71, 26, 26);
+    font-size: 15px;
+    font-family: cursive;
   }
   .header button {
     width: 100%;
@@ -49,7 +50,6 @@
     background-color: rgb(176, 54, 54);
     color: white;
     cursor: pointer;
-
-    font-size: 15px;
+    font-size: 13px;
   }
 }
